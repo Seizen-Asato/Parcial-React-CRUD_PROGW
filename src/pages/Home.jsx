@@ -3,17 +3,19 @@
 
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
-import { getAllPost } from "../services/postService";
+import { getAllPost, updatePost } from "../services/postService";
 import Swal from "sweetalert2";
+import EditPost from "../components/editPost";
 const Home = () => {
   const [cargando, setCargando] = useState(false);
-  const [post, setPost] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [currentPost, setCurrentPost] = useState(null);
   useEffect(() => {
     async function loadPost() {
       try {
         setCargando(true);
         const respuesta = await getAllPost();
-        setPost(respuesta);
+        setPosts(respuesta);
       } catch (error) {
         console.error(error.message);
         Swal.fire({
@@ -47,7 +49,12 @@ const Home = () => {
                         <h3 className="card-title h5">{post.title}</h3>
                         <p className="card-text text-muted">{post.body}</p>
                         <div className="d-flex justify-content-end gap-2">
-                          <button className="btn btn-warning">Editar</button>
+                          <button
+                            className="btn btn-warning"
+                            onClick={() => setCurrentPost(post)}
+                          >
+                            Editar
+                          </button>
                           <button className="btn btn-danger">Eliminar</button>
                         </div>
                       </div>
@@ -59,7 +66,18 @@ const Home = () => {
           </div>
         </main>
       )}
-      ;
+      <EditPost
+        post={currentPost}
+        onClose={() => setCurrentPost(null)}
+        onSave={(updatePost) => {
+          
+          const newPost = posts.map((e) => {
+            return e.id === updatePost.id ? updatePost : e;
+          });
+          setPosts(newPost);
+          setCurrentPost(null);
+        }}
+      />
     </div>
   );
 };
