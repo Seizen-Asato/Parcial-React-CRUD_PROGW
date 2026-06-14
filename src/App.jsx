@@ -3,14 +3,17 @@ import Home from "./pages/Home";
 import "./components/layout/App.css";
 import "./components/layout/index.css";
 import DetailPost from "./pages/DetailPost";
+import { ThemeProvider } from "./context/ThemeProvider";
 function App() {
   return (
     <>
       <div className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detailPost/:id" element={<DetailPost />} />
-        </Routes>
+        <ThemeProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detailPost/:id" element={<DetailPost />} />
+          </Routes>
+        </ThemeProvider>
       </div>
     </>
   );
