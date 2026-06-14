@@ -1,11 +1,9 @@
-import React from "react";
 import { useState } from "react";
 
 export default function EditPost({ post, onClose, onSave }) {
-  if (!post) return null;
   const [titulo, setTitulo] = useState(post.title);
   const [cuerpo, setCuerpo] = useState(post.body);
-
+  if (!post) return null;
   return (
     <div
       className="bg-dark bg-opacity-50 position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
@@ -13,7 +11,6 @@ export default function EditPost({ post, onClose, onSave }) {
     >
       <div className="card shadow" style={{ width: "500px" }}>
         <div className="card-body p-4">
-          
           <h5
             className="fw-bold text-dark mb-4"
             style={{
