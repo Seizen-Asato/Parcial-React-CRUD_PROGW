@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-
 export default function EditPost({ post, onClose, onSave }) {
   const [titulo, setTitulo] = useState("");
   const [cuerpo, setCuerpo] = useState("");
 
   const tituloRef = useRef(null);
-
+  
   useEffect(() => {
     if (post) {
       setTitulo(post.title);
@@ -20,7 +19,6 @@ export default function EditPost({ post, onClose, onSave }) {
   }, [post]);
 
   if (!post) return null;
-
   return (
     <div
       className="bg-dark bg-opacity-50 position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"

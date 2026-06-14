@@ -4,6 +4,7 @@
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { getAllPost, updatePost } from "../services/postService";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import EditPost from "./editPost";
 import RemovePost from "./RemovePost";
@@ -51,6 +52,12 @@ const Home = () => {
                         <h3 className="card-title h5">{post.title}</h3>
                         <p className="card-text text-muted">{post.body}</p>
                         <div className="d-flex justify-content-end gap-2">
+                          <Link
+                            to={`/DetailPost/${post.id}`}
+                            className="btn btn-success"
+                          >
+                            Ver Detalles
+                          </Link>
                           <button
                             className="btn btn-warning"
                             onClick={() => setCurrentPost(post)}

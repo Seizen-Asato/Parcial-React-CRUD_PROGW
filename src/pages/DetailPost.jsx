@@ -46,7 +46,7 @@ const DetailPost = () => {
             <p>{post.body}</p>
           </div>
           <div className="card-footer text-center">
-            <Link to="/Home" className=" btn btn-outline-sucess px-4">
+            <Link to="/" className=" btn btn-outline-sucess px-4">
               Volver a la Lista
             </Link>
           </div>
