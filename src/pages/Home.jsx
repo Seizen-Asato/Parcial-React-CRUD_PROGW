@@ -7,6 +7,8 @@ import { getAllPost, updatePost } from "../services/postService";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import EditPost from "./editPost";
+import RemovePost from "./RemovePost";
+
 const Home = () => {
   const [cargando, setCargando] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -62,7 +64,7 @@ const Home = () => {
                           >
                             Editar
                           </button>
-                          <button className="btn btn-danger">Eliminar</button>
+                          <RemovePost postId={post.id} setPosts={setPosts} />
                         </div>
                       </div>
                     </div>

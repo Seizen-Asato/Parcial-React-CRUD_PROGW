@@ -1,8 +1,23 @@
-import { useState } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 export default function EditPost({ post, onClose, onSave }) {
-  const [titulo, setTitulo] = useState(post.title);
-  const [cuerpo, setCuerpo] = useState(post.body);
+  const [titulo, setTitulo] = useState("");
+  const [cuerpo, setCuerpo] = useState("");
+
+  const tituloRef = useRef(null);
+  
+  useEffect(() => {
+    if (post) {
+      setTitulo(post.title);
+      setCuerpo(post.body);
+    }
+  }, [post]);
+
+  useEffect(() => {
+    if (post && tituloRef.current) {
+      tituloRef.current.focus();
+    }
+  }, [post]);
+
   if (!post) return null;
   return (
     <div
@@ -26,11 +41,13 @@ export default function EditPost({ post, onClose, onSave }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+
               const postData = {
                 id: post.id,
                 title: titulo,
                 body: cuerpo,
               };
+
               onSave(postData);
             }}
           >
@@ -38,7 +55,9 @@ export default function EditPost({ post, onClose, onSave }) {
               <label className="form-label fw-semibold text-secondary">
                 Título
               </label>
+
               <input
+                ref={tituloRef}
                 type="text"
                 className="form-control"
                 value={titulo}
@@ -50,6 +69,7 @@ export default function EditPost({ post, onClose, onSave }) {
               <label className="form-label fw-semibold text-secondary">
                 Cuerpo
               </label>
+
               <textarea
                 className="form-control"
                 rows={4}
@@ -60,6 +80,7 @@ export default function EditPost({ post, onClose, onSave }) {
 
             <div className="d-flex justify-content-end gap-2 pt-2">
               <button className="btn btn-success">Guardar</button>
+
               <button
                 type="button"
                 className="btn btn-danger"
