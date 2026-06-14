@@ -2,15 +2,20 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import "./components/layout/App.css";
 import "./components/layout/index.css";
-import Prueba from "./pages/Prueba";
+import EditPost from "./pages/EditPost";
+import DetailPost from "./pages/DetailPost";
+import { ThemeProvider } from "./context/ThemeProvider";
 function App() {
   return (
     <>
       <div className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/prueba" element={<Prueba />} />
-        </Routes>
+        <ThemeProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detailPost/:id" element={<DetailPost />} />
+            <Route path="/ EditPost" element={<EditPost />} />
+          </Routes>
+        </ThemeProvider>
       </div>
     </>
   );

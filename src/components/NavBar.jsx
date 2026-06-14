@@ -13,7 +13,9 @@ const NavBar = ({ children }) => {
               </Link>
             </li>
             <li className="navbar-item">
-              <Link to="/prueba" className="navbar-link">Prueba</Link>
+              <Link to="/EditPost" className="navbar-link">
+                Editar
+              </Link>
             </li>
           </ul>
         </div>
