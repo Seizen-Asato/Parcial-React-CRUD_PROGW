@@ -30,6 +30,7 @@ const RemovePost = ({ postId, setPosts }) => {
         title: "Error",
         text: "No se pudo eliminar el post",
       });
+      console.error("Error al eliminar la Card", error);
     }
   };
 
