@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
 import { deletePost } from "../services/postService";
 
-const RemovePost = () => {
-  const handleDelete = async (id) => {
+const RemovePost = ({ postId, setPosts }) => {
+  const handleDelete = async () => {
     const result = await Swal.fire({
       title: "¿Eliminar post?",
       text: "Esta acción no se puede deshacer",
@@ -15,7 +15,9 @@ const RemovePost = () => {
     if (!result.isConfirmed) return;
 
     try {
-      await deletePost(id);
+      await deletePost(postId);
+
+      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
 
       Swal.fire({
         icon: "success",
@@ -31,7 +33,11 @@ const RemovePost = () => {
     }
   };
 
-  return <div>Remove Post</div>;
+  return (
+    <button className="btn btn-danger" onClick={handleDelete}>
+      Eliminar
+    </button>
+  );
 };
 
 export default RemovePost;
