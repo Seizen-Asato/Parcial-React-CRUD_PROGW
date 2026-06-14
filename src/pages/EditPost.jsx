@@ -13,7 +13,7 @@ export default function EditPost({ post, onClose, onSave }) {
     >
       <div className="card shadow" style={{ width: "500px" }}>
         <div className="card-body p-4">
-          {/* Forzamos al título a comportarse de forma estática en su lugar real */}
+          
           <h5
             className="fw-bold text-dark mb-4"
             style={{

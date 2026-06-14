@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { getAllPost, updatePost } from "../services/postService";
 import Swal from "sweetalert2";
-import EditPost from "../components/editPost";
+import EditPost from "./editPost";
 const Home = () => {
   const [cargando, setCargando] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -69,13 +69,17 @@ const Home = () => {
       <EditPost
         post={currentPost}
         onClose={() => setCurrentPost(null)}
-        onSave={(updatePost) => {
-          
-          const newPost = posts.map((e) => {
-            return e.id === updatePost.id ? updatePost : e;
-          });
-          setPosts(newPost);
-          setCurrentPost(null);
+        onSave={async (updatePostData) => {
+          try {
+            await updatePost(updatePostData.id, updatePostData);
+            const newPost = posts.map((e) => {
+              return e.id === updatePostData.id ? updatePostData : e;
+            });
+            setPosts(newPost);
+            setCurrentPost(null);
+          } catch (error) {
+            console.error("Error al actualizar en la API:", error);
+          }
         }}
       />
     </div>
