@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@swc/helpers':
+        specifier: ^0.5.23
+        version: 0.5.23
+      bootstrap-darkmode:
+        specifier: ^5.0.1
+        version: 5.0.1(bootstrap@5.3.8(@popperjs/core@2.11.8))
       react:
         specifier: ^19.2.6
         version: 19.2.7
@@ -214,6 +220,9 @@ packages:
   '@oxc-project/types@0.133.0':
     resolution: {integrity: sha512-KzkdCd6Uxqnf6l3HOw1xfatAlUURA0g14cvBYFyJ5SaNOQbOUvBr9PKArcPcrNIeRsBdgcUzOGrhKveVpvOIGA==}
 
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+
   '@react-spring/animated@10.1.1':
     resolution: {integrity: sha512-kqdtIzr1GfBmbojnYhNdEhgu23f1rQ9H98K6KGmWHpNBP0gGZWN8KEIzGYwCAon7Q8ktGmsR1dCyy6QTI4egug==}
     peerDependencies:
@@ -339,6 +348,9 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
+  '@swc/helpers@0.5.23':
+    resolution: {integrity: sha512-5lSsMOTXURePglDfvuAQUqkGek9Hg2kksOYay2m0+XR++b2NWYL/4sWyuvVBIs8oKnJaxkdi9whaL/sqN13afw==}
+
   '@tybys/wasm-util@0.10.2':
     resolution: {integrity: sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg==}
 
@@ -393,6 +405,16 @@ packages:
     resolution: {integrity: sha512-honAfLBde0HAFLdNyBEfuuENkF6zR+ozxqxa/2zJKHBe1qzLqyTSeRKpdPEHAP03rlDGyQOPnCSxnVpVqQo9Mg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+
+  bootstrap-darkmode@5.0.1:
+    resolution: {integrity: sha512-jyl507aEItDG7PHVdFgVNZ+qBX+Gffo6uGYOY9waegHcNRqBuajwyfkLpCGczMlhAQiEcms3jdxfhMg3AZJMfA==}
+    peerDependencies:
+      bootstrap: '>=5'
+
+  bootstrap@5.3.8:
+    resolution: {integrity: sha512-HP1SZDqaLDPwsNiqRqi5NcP0SSXciX2s9E+RyqJIIqGo+vJeN5AJVM98CXmW/Wux0nQ5L7jeWUdplCEf0Ee+tg==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
 
   brace-expansion@5.0.6:
     resolution: {integrity: sha512-kLpxurY4Z4r9sgMsyG0Z9uzsBlgiU/EFKhj/h91/8yHu0edo7XuixOIH3VcJ8kkxs6/jPzoI6U9Vj3WqbMQ94g==}
@@ -1089,6 +1111,8 @@ snapshots:
 
   '@oxc-project/types@0.133.0': {}
 
+  '@popperjs/core@2.11.8': {}
+
   '@react-spring/animated@10.1.1(react@19.2.7)':
     dependencies:
       '@react-spring/shared': 10.1.1(react@19.2.7)
@@ -1173,6 +1197,10 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
+  '@swc/helpers@0.5.23':
+    dependencies:
+      tslib: 2.8.1
+
   '@tybys/wasm-util@0.10.2':
     dependencies:
       tslib: 2.8.1
@@ -1213,6 +1241,15 @@ snapshots:
   balanced-match@4.0.4: {}
 
   baseline-browser-mapping@2.10.35: {}
+
+  bootstrap-darkmode@5.0.1(bootstrap@5.3.8(@popperjs/core@2.11.8)):
+    dependencies:
+      bootstrap: 5.3.8(@popperjs/core@2.11.8)
+      tslib: 2.8.1
+
+  bootstrap@5.3.8(@popperjs/core@2.11.8):
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   brace-expansion@5.0.6:
     dependencies:
@@ -1583,8 +1620,7 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.4)
       picomatch: 4.0.4
 
-  tslib@2.8.1:
-    optional: true
+  tslib@2.8.1: {}
 
   type-check@0.4.0:
     dependencies:

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import "../components/layout/edit.css";
 export default function EditPost({ post, onClose, onSave }) {
   const [titulo, setTitulo] = useState("");
   const [cuerpo, setCuerpo] = useState("");
 
   const tituloRef = useRef(null);
-  
+
   useEffect(() => {
     if (post) {
       setTitulo(post.title);
@@ -24,10 +25,10 @@ export default function EditPost({ post, onClose, onSave }) {
       className="bg-dark bg-opacity-50 position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
       style={{ zIndex: 1050 }}
     >
-      <div className="card shadow" style={{ width: "500px" }}>
+      <div className="edit-card shadow" style={{ width: "500px" }}>
         <div className="card-body p-4">
           <h5
-            className="fw-bold text-dark mb-4"
+            className="card-title fw-bold  mb-4"
             style={{
               position: "static",
               display: "block",

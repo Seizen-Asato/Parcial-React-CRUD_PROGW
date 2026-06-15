@@ -5,19 +5,19 @@ import "./components/layout/index.css";
 import EditPost from "./pages/EditPost";
 import DetailPost from "./pages/DetailPost";
 import NotFound from "./components/NotFound";
-import { ThemeProvider } from "./context/ThemeProvider";
+import { useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
 function App() {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
-      <div className="main-content">
-        <ThemeProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/detailPost/:id" element={<DetailPost />} />
-            <Route path="/EditPost" element={<EditPost />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ThemeProvider>
+      <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detailPost/:id" element={<DetailPost />} />
+          <Route path="/EditPost" element={<EditPost />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </>
   );

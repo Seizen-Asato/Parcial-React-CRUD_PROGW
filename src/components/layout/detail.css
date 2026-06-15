@@ -1,0 +1,79 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.detail-card {
+  max-width: 900px;
+  margin-top: -40px;
+  border-radius: 12px;
+}
+.detail-card .card-body {
+  padding: 1.5rem;
+}
+.light-mode .detail-card {
+  background-color: #ffffff;
+  color: #232121;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .detail-card .card-title {
+  color: #232121;
+}
+
+.light-mode .detail-card .card-text {
+  color: #4b5563;
+}
+
+.light-mode .detail-card .card-footer .btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.light-mode .detail-card .card-footer .btn:hover {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.dark-mode .detail-card {
+  background-color: #1e293b;
+  color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .detail-card .card-title {
+  color: #cbd5e1;
+}
+
+.dark-mode .detail-card .card-text {
+  color: #e2e8f0;
+}
+
+.dark-mode .detail-card .card-footer .btn {
+  background-color: #3b82f6;
+  color: #111827;
+  border: none;
+}
+
+.dark-mode .detail-card .card-footer .btn:hover {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.detail-card .card-footer {
+  padding: 1rem;
+  text-align: center;
+}

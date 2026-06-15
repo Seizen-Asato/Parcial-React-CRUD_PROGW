@@ -5,6 +5,8 @@ import { getIdPost } from "../services/postService";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import "../components/layout/detail.css";
+
 const DetailPost = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
@@ -37,8 +39,8 @@ const DetailPost = () => {
   if (!post) return <Loading />;
   return (
     <div>
-      <div className="container mt-4">
-        <div className="card shadow-lg border-0">
+      <div className="detail-container">
+        <div className="detail-card shadow-lg border-0">
           <div className="card-head text-center">
             <h3>{post.title}</h3>
           </div>

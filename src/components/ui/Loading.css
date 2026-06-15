@@ -14,8 +14,15 @@
   border-top-color: black;
   animation: loading 0.75s ease infinite;
 }
+.dark-mode .loading-spinner {
+  border: 50px solid #545f6f;
+  border-top-color: #042d58;
+}
 h5 {
   position: absolute;
+}
+.dark-mode h5 {
+  color: #545f6f;
 }
 .loading-spinner h5 {
   position: absolute;

@@ -1,0 +1,31 @@
+.light-mode .edit-card {
+  background-color: #ffffff;
+  color: #232121;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .edit-card .card-title {
+  color: #232121;
+}
+
+.light-mode .edit-card .form-label {
+  color: #4b5563;
+}
+
+.dark-mode .edit-card {
+  background-color: #1e293b;
+  color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .edit-card .card-title {
+  color: #445b7b;
+}
+
+.dark-mode .edit-card .form-label {
+  color: #e2e8f0;
+}
+.dark-mode .edit-card .form-control {
+  color: #ffffff;
+  background-color: #121821;
+}

@@ -1,0 +1,114 @@
+.light-mode .home-card {
+  background-color: #ffffff;
+  color: #232121;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.light-mode .btn-success {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+.light-mode .btn-success:hover {
+  background-color: transparent;
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.light-mode .btn-warning {
+  background-color: #ffc107;
+  color: #fff;
+  border-color: #ffc107;
+}
+.light-mode .btn-warning:hover {
+  background-color: transparent;
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.light-mode .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+.light-mode .btn-primary:hover {
+  background-color: transparent;
+  color: #007bff;
+  border-color: #007bff;
+}
+.light-mode .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+.light-mode .btn-danger:hover {
+  background-color: transparent;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.dark-mode .home-card {
+  background-color: #1e293b;
+  color: #f9fafb;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .home-card .card-text {
+  color: #f9fafb;
+}
+
+.dark-mode .home-card .card-title {
+  color: #cbd5e1;
+}
+
+.dark-mode h2 {
+  color: #e9e9e9;
+}
+
+.home-card .card-body {
+  padding: 1.5rem;
+}
+
+.dark-mode .btn-success {
+  background-color: #10b981;
+  color: #111827;
+  border-color: #10b981;
+}
+.dark-mode .btn-success:hover {
+  background-color: transparent;
+  color: #10b981;
+  border-color: #10b981;
+}
+
+.dark-mode .btn-warning {
+  background-color: #facc15;
+  color: #111827;
+  border-color: #facc15;
+}
+.dark-mode .btn-warning:hover {
+  background-color: transparent;
+  color: #facc15;
+  border-color: #facc15;
+}
+
+.dark-mode .btn-primary {
+  background-color: #3b82f6;
+  color: #111827;
+  border-color: #3b82f6;
+}
+.dark-mode .btn-primary:hover {
+  background-color: transparent;
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+.dark-mode .btn-danger {
+  background-color: #ef4444;
+  color: #111827;
+  border-color: #ef4444;
+}
+
+.dark-mode .btn-danger:hover {
+  background-color: transparent;
+  color: #ef4444;
+  border-color: #ef4444;
+}

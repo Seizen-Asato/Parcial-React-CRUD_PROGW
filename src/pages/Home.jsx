@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import EditPost from "./EditPost";
 import RemovePost from "./RemovePost";
-
+import "../components/layout/home.css";
 const Home = () => {
   const [cargando, setCargando] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -36,7 +36,7 @@ const Home = () => {
     <div>
       {cargando === true && <Loading />}
       {!cargando && (
-        <main className="container my-4">
+        <main className="container my-4  ">
           <div className="row g-4">
             <div className="col-12">
               <div className="d-flex justify-content-between align-items-center mb-4">
@@ -47,10 +47,10 @@ const Home = () => {
               <div className="row g-3">
                 {posts.map((post) => (
                   <div key={post.id} className="col-12 col-md-6">
-                    <div className="card h-100 shadow-sm">
+                    <div className="home-card h-100 shadow-sm">
                       <div className="card-body">
                         <h3 className="card-title h5">{post.title}</h3>
-                        <p className="card-text text-muted">{post.body}</p>
+                        <p className="card-text">{post.body}</p>
                         <div className="d-flex justify-content-end gap-2">
                           <Link
                             to={`/DetailPost/${post.id}`}
@@ -64,7 +64,11 @@ const Home = () => {
                           >
                             Editar
                           </button>
-                          <RemovePost postId={post.id} setPosts={setPosts} />
+                          <RemovePost
+                            className="btn"
+                            postId={post.id}
+                            setPosts={setPosts}
+                          />
                         </div>
                       </div>
                     </div>
