@@ -4,7 +4,7 @@ import "./components/layout/App.css";
 import "./components/layout/index.css";
 import EditPost from "./pages/EditPost";
 import DetailPost from "./pages/DetailPost";
-import NotFound from "./components/ui/NotFound";
+import NotFound from "./components/NotFound";
 import { ThemeProvider } from "./context/ThemeProvider";
 function App() {
   return (
