@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { getAllPost, updatePost } from "../services/postService";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import EditPost from "./editPost";
+import EditPost from "./EditPost";
 import RemovePost from "./RemovePost";
 
 const Home = () => {
