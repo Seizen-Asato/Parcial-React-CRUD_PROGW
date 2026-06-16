@@ -7,6 +7,14 @@ export default function EditPost({ post, onClose, onSave }) {
   const tituloRef = useRef(null);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
+  useEffect(() => {
     if (post) {
       setTitulo(post.title);
       setCuerpo(post.body);
