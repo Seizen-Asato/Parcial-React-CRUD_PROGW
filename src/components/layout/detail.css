@@ -2,12 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100dvh;
+  height: 80dvh;
   padding: 2rem 1rem;
   box-sizing: border-box;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .detail-container {
+    height: 100dvh;
+    padding: 1rem;
+  }
 }
 
 .detail-card {

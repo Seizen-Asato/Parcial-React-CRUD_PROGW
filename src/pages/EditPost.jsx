@@ -1,18 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNotScroll } from "../hooks/useNotScroll";
 import "../components/layout/edit.css";
 export default function EditPost({ post, onClose, onSave }) {
   const [titulo, setTitulo] = useState("");
   const [cuerpo, setCuerpo] = useState("");
-
+  useNotScroll(!!post);
   const tituloRef = useRef(null);
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
 
   useEffect(() => {
     if (post) {
