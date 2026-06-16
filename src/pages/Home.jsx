@@ -79,22 +79,24 @@ const Home = () => {
           </div>
         </main>
       )}
-      <EditPost
-        post={currentPost}
-        onClose={() => setCurrentPost(null)}
-        onSave={async (updatePostData) => {
-          try {
-            await updatePost(updatePostData.id, updatePostData);
-            const newPost = posts.map((e) => {
-              return e.id === updatePostData.id ? updatePostData : e;
-            });
-            setPosts(newPost);
-            setCurrentPost(null);
-          } catch (error) {
-            console.error("Error al actualizar en la API:", error);
-          }
-        }}
-      />
+      {currentPost && (
+        <EditPost
+          post={currentPost}
+          onClose={() => setCurrentPost(null)}
+          onSave={async (updatePostData) => {
+            try {
+              await updatePost(updatePostData.id, updatePostData);
+              const newPost = posts.map((e) => {
+                return e.id === updatePostData.id ? updatePostData : e;
+              });
+              setPosts(newPost);
+              setCurrentPost(null);
+            } catch (error) {
+              console.error("Error al actualizar en la API:", error);
+            }
+          }}
+        />
+      )}
     </div>
   );
 };
