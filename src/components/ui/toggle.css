@@ -5,3 +5,8 @@
 .dark-mode {
   background-color: #111827;
 }
+
+svg {
+  margin-top: 20px;
+  margin-left: 10px;
+}

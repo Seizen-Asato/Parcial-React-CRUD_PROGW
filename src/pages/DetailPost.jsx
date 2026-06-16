@@ -40,7 +40,7 @@ const DetailPost = () => {
   return (
     <div>
       <div className="detail-container">
-        <div className="detail-card shadow-lg border-0">
+        <div className="detail-card ">
           <div className="card-head text-center">
             <h3>{post.title}</h3>
           </div>

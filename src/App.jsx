@@ -7,6 +7,7 @@ import DetailPost from "./pages/DetailPost";
 import NotFound from "./components/NotFound";
 import { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext";
+import Loading from "./components/Loading";
 function App() {
   const { theme } = useContext(ThemeContext);
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/detailPost/:id" element={<DetailPost />} />
           <Route path="/EditPost" element={<EditPost />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/Loading" element={<Loading />} />
         </Routes>
       </div>
     </>

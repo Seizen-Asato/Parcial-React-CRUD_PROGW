@@ -1,7 +1,20 @@
+.home-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border-radius: 8px;
+}
+
+.home-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .light-mode .home-card {
   background-color: #ffffff;
   color: #232121;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #111827;
 }
 .light-mode .btn-success {
   background-color: #28a745;
@@ -45,6 +58,10 @@
   background-color: transparent;
   color: #dc3545;
   border-color: #dc3545;
+}
+
+.light-mode .home-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .dark-mode .home-card {
@@ -111,4 +128,8 @@
   background-color: transparent;
   color: #ef4444;
   border-color: #ef4444;
+}
+
+.dark-mode .home-card:hover {
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }

@@ -17,7 +17,7 @@ const NavBar = ({ children }) => {
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/EditPost" className="navbar-link">
+                <Link to="/Loading" className="navbar-link">
                   Editar
                 </Link>
               </li>

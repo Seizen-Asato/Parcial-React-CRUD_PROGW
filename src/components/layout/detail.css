@@ -1,30 +1,34 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
 .detail-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .detail-card {
+  width: 100%;
   max-width: 900px;
-  margin-top: -40px;
   border-radius: 12px;
+  margin: 0 auto;
 }
 .detail-card .card-body {
   padding: 1.5rem;
 }
+.detail-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .light-mode .detail-card {
   background-color: #ffffff;
   color: #232121;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1d5db;
 }
 
 .light-mode .detail-card .card-title {
@@ -46,11 +50,18 @@ body {
   color: #007bff;
   border: 1px solid #007bff;
 }
+.light-mode .detail-card .card-footer {
+  background-color: #e7e3e381;
+}
+.light-mode .detail-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
 
 .dark-mode .detail-card {
   background-color: #1e293b;
   color: #f9fafb;
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  border: 1px solid #475569;
 }
 
 .dark-mode .detail-card .card-title {
@@ -76,4 +87,14 @@ body {
 .detail-card .card-footer {
   padding: 1rem;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 12px 12px;
+}
+
+.dark-mode .detail-card .card-footer {
+  background-color: #334155;
+}
+
+.dark-mode .detail-card:hover {
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }

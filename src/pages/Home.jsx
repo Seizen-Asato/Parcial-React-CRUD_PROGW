@@ -47,7 +47,7 @@ const Home = () => {
               <div className="row g-3">
                 {posts.map((post) => (
                   <div key={post.id} className="col-12 col-md-6">
-                    <div className="home-card h-100 shadow-sm">
+                    <div className="home-card h-100 ">
                       <div className="card-body">
                         <h3 className="card-title h5">{post.title}</h3>
                         <p className="card-text">{post.body}</p>
