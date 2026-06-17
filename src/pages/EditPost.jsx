@@ -4,6 +4,7 @@ import "../components/layout/edit.css";
 export default function EditPost({ post, onClose, onSave }) {
   const [titulo, setTitulo] = useState("");
   const [cuerpo, setCuerpo] = useState("");
+  const [errores, setErrores] = useState({ tituloError: "", cuerpoError: "" });
   useNotScroll(!!post);
   const tituloRef = useRef(null);
 
@@ -19,6 +20,39 @@ export default function EditPost({ post, onClose, onSave }) {
       tituloRef.current.focus();
     }
   }, [post]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let erroresDetectados = { tituloError: "", cuerpoError: "" };
+    let errorExistente = false;
+
+    if (titulo.trim() === "") {
+      erroresDetectados.tituloError = "El titulo es obligatorio";
+      errorExistente = true;
+    }
+
+    if (cuerpo.trim() === "") {
+      erroresDetectados.cuerpoError = "El cuerpo es obligatorio";
+      errorExistente = true;
+    }
+
+    if (errorExistente) {
+      setErrores(erroresDetectados);
+      return;
+    }
+
+    const postData = {
+      id: post.id,
+      title: titulo,
+      body: cuerpo,
+    };
+
+    onSave(postData);
+
+    setErrores({ tituloError: "", cuerpoError: "" });
+    onSave({ ...post, title: titulo, body: cuerpo });
+  };
 
   if (!post) return null;
   return (
@@ -40,19 +74,7 @@ export default function EditPost({ post, onClose, onSave }) {
             Editar Publicación
           </h5>
 
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-
-              const postData = {
-                id: post.id,
-                title: titulo,
-                body: cuerpo,
-              };
-
-              onSave(postData);
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label fw-semibold text-secondary">
                 Título
@@ -65,6 +87,9 @@ export default function EditPost({ post, onClose, onSave }) {
                 value={titulo}
                 onChange={(e) => setTitulo(e.target.value)}
               />
+              <small className="text-danger d-block mt-1">
+                {errores.tituloError}
+              </small>
             </div>
 
             <div className="mb-3">
@@ -78,6 +103,9 @@ export default function EditPost({ post, onClose, onSave }) {
                 value={cuerpo}
                 onChange={(e) => setCuerpo(e.target.value)}
               />
+              <small className="text-danger d-block mt-1">
+                {errores.cuerpoError}
+              </small>
             </div>
 
             <div className="d-flex justify-content-end gap-2 pt-2">

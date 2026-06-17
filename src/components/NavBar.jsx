@@ -8,7 +8,7 @@ const NavBar = ({ children }) => {
   return (
     <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
       <div className="navbar">
-        <div className="navbar-container">
+        <div className="navbar-container  ">
           <div className="navbar-left">
             <Link to="/">
               <img src={Logo} alt="Pen Logo" className="navbar-logo" />
