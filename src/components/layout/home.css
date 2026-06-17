@@ -9,6 +9,15 @@
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+.home-header {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.home-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
 
 .light-mode .home-card {
   background-color: #ffffff;
@@ -132,4 +141,45 @@
 
 .dark-mode .home-card:hover {
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  .home-card {
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .home-card .card-body {
+    padding: 1rem;
+  }
+
+  .home-card .card-title {
+    font-size: 1rem;
+  }
+
+  .home-card .card-text {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .home-container {
+    grid-template-columns: 1fr;
+  }
+
+  .home-card {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }

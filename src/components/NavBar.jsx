@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import "./layout/navBar.css";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import Logo from "../assets/logo.webp";
 const NavBar = ({ children }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
       <div className="navbar">
         <div className="navbar-container">
-          <div className="navbar-logo">Mi Logo</div>
+          <div className="navbar-left">
+            <Link to="/">
+              <img src={Logo} alt="Pen Logo" className="navbar-logo" />
+            </Link>
+          </div>
           <div className="navbar-menu">
             <ul>
               <li className="navbar-item">

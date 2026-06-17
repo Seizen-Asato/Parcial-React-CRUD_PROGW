@@ -1,6 +1,3 @@
-// utilizamos los helpers en el service y ultilizaremos la unfcion que corresponda, el home al  ser la
-//pagina principal, debe estar el listado y ahi se mostraran todas las cards
-
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { getAllPost, updatePost } from "../services/postService";
@@ -39,7 +36,7 @@ const Home = () => {
         <main className="container my-4  ">
           <div className="row g-4">
             <div className="col-12">
-              <div className="d-flex justify-content-between align-items-center mb-4">
+              <div className="d-flex justify-content-between align-items-center mb-4  home-header">
                 <h2>Listado de publicaciones</h2>
                 <button className="btn btn-primary">Crear post</button>
               </div>
@@ -49,7 +46,10 @@ const Home = () => {
                   <div key={post.id} className="col-12 col-md-6">
                     <div className="home-card h-100 ">
                       <div className="card-body">
-                        <h3 className="card-title h5">{post.title}</h3>
+                        <h3 className="card-title h5">
+                          <strong>{post.title}</strong>
+                        </h3>
+                        <hr />
                         <p className="card-text">{post.body}</p>
                         <div className="d-flex justify-content-end gap-2">
                           <Link

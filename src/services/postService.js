@@ -1,8 +1,3 @@
-// Lllamamos a la funcion fetchApi, manejamos los errors en el response, hacemos las funciones de
-// de cada parte del crud "GETALL,GET:ID,POST,PUT,DELETE"
-// Cree un "postData" que habara que hacer un obejto json en alguna funcion del components cuadno creemos el formulario por ejemplo
-// Y ahi se guardara toda la infromacion
-
 import { fetchApi } from "./ApiService";
 
 export async function getAllPost() {

@@ -45,6 +45,7 @@ const DetailPost = () => {
           <div className="card-head text-center">
             <h3>{post.title}</h3>
           </div>
+          <hr />
           <div className="card-body">
             <p>{post.body}</p>
           </div>

@@ -1,8 +1,15 @@
 import Swal from "sweetalert2";
 import { deletePost } from "../services/postService";
+import { useNotScroll } from "../hooks/useNotScroll";
+import { useState } from "react";
 
 const RemovePost = ({ postId, setPosts }) => {
+  const [blockScroll, setBlockScroll] = useState(false);
+  useNotScroll(blockScroll);
+
   const handleDelete = async () => {
+    setBlockScroll(true);
+
     const result = await Swal.fire({
       title: "¿Eliminar post?",
       text: "Esta acción no se puede deshacer",
@@ -10,13 +17,13 @@ const RemovePost = ({ postId, setPosts }) => {
       showCancelButton: true,
       confirmButtonText: "Eliminar",
       cancelButtonText: "Cancelar",
+      willClose: () => setBlockScroll(false),
     });
 
     if (!result.isConfirmed) return;
 
     try {
       await deletePost(postId);
-
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
 
       Swal.fire({
@@ -31,6 +38,8 @@ const RemovePost = ({ postId, setPosts }) => {
         text: "No se pudo eliminar el post",
       });
       console.error("Error al eliminar la Card", error);
+    } finally {
+      setBlockScroll(false);
     }
   };
 

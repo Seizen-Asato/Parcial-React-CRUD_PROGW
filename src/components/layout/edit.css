@@ -29,3 +29,49 @@
   color: #ffffff;
   background-color: #121821;
 }
+
+@media (max-width: 768px) {
+  .edit-card {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .edit-card .card-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .edit-card .form-label {
+    font-size: 0.95rem;
+  }
+
+  .edit-card .form-control {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .edit-card .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 350px) {
+  .edit-card {
+    max-width: 95%;
+    padding: 0.8rem;
+  }
+
+  .edit-card .card-title {
+    font-size: 1rem;
+  }
+
+  .edit-card .form-label {
+    font-size: 0.9rem;
+  }
+
+  .edit-card .form-control {
+    font-size: 0.85rem;
+  }
+}
