@@ -13,6 +13,7 @@
   padding: 0 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
 .light-mode .navbar-left {
