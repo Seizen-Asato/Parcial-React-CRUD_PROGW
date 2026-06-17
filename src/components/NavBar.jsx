@@ -26,6 +26,21 @@ const NavBar = ({ children }) => {
                   Editar
                 </Link>
               </li>
+              <li className="navbar-item">
+                <Link to="/" className="navbar-link">
+                  Contacto
+                </Link>
+              </li>
+              <li className="navbar-item">
+                <Link to="/" className="navbar-link">
+                  Servicios
+                </Link>
+              </li>
+              <li className="navbar-item">
+                <Link to="/" className="navbar-link">
+                  Acerca de
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
