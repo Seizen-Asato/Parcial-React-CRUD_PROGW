@@ -10,12 +10,14 @@ const Home = () => {
   const [cargando, setCargando] = useState(false);
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState(null);
+  const isDarkMode = document.body.classList.contains("dark-mode");
   useEffect(() => {
     async function loadPost() {
       try {
         setCargando(true);
         const respuesta = await getAllPost();
-        setPosts(respuesta);
+        const localPosts = JSON.parse(localStorage.getItem("posts")) || [];
+        setPosts([...localPosts, ...respuesta]);
       } catch (error) {
         console.error(error.message);
         Swal.fire({
@@ -38,7 +40,9 @@ const Home = () => {
             <div className="col-12">
               <div className="d-flex justify-content-between align-items-center mb-4  home-header">
                 <h2>Listado de publicaciones</h2>
-                <button className="btn btn-primary">Crear post</button>
+                <Link to="/Create" className="btn btn-primary">
+                  Crear Publicación
+                </Link>
               </div>
 
               <div className="row g-3">
@@ -85,14 +89,52 @@ const Home = () => {
           onClose={() => setCurrentPost(null)}
           onSave={async (updatePostData) => {
             try {
-              await updatePost(updatePostData.id, updatePostData);
-              const newPost = posts.map((e) => {
-                return e.id === updatePostData.id ? updatePostData : e;
+              const localPosts =
+                JSON.parse(localStorage.getItem("posts")) || [];
+              const isLocal = localPosts.some(
+                (p) => p.id === updatePostData.id,
+              );
+
+              if (isLocal) {
+                const updatedLocalPosts = localPosts.map((post) =>
+                  post.id === updatePostData.id ? updatePostData : post,
+                );
+                localStorage.setItem(
+                  "posts",
+                  JSON.stringify(updatedLocalPosts),
+                );
+              } else {
+                console.warn(
+                  "Post de la API: no se puede actualizar en el servidor.",
+                );
+              }
+              const newPosts = posts.map((e) =>
+                e.id === updatePostData.id ? updatePostData : e,
+              );
+              setPosts(newPosts);
+
+              Swal.fire({
+                icon: "success",
+                title: "Publicación actualizada",
+                text: isLocal
+                  ? "Los cambios se guardaron correctamente"
+                  : "Solo se actualizó localmente (la API no permite edición)",
+                background: isDarkMode ? "#1f2937" : "#ffffff",
+                color: isDarkMode ? "#ffffff" : "#212529",
+                timer: 1500,
+                showConfirmButton: false,
               });
-              setPosts(newPost);
+
               setCurrentPost(null);
             } catch (error) {
-              console.error("Error al actualizar en la API:", error);
+              console.error("Error al actualizar:", error);
+              Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "No se pudo actualizar la publicación",
+                background: isDarkMode ? "#1f2937" : "#ffffff",
+                color: isDarkMode ? "#ffffff" : "#212529",
+              });
             }
           }}
         />

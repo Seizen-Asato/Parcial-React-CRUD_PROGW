@@ -51,7 +51,6 @@ export default function EditPost({ post, onClose, onSave }) {
     onSave(postData);
 
     setErrores({ tituloError: "", cuerpoError: "" });
-    onSave({ ...post, title: titulo, body: cuerpo });
   };
 
   if (!post) return null;

@@ -13,9 +13,17 @@ const DetailPost = () => {
   const [post, setPost] = useState(null);
   const back = useNavigate();
   useNotScroll(!!post);
+  const isDarkMode = document.body.classList.contains("dark-mode");
+
   useEffect(() => {
     async function loadDetails() {
       try {
+        const localPosts = JSON.parse(localStorage.getItem("posts")) || [];
+        const localPost = localPosts.find((p) => p.id === Number(id));
+        if (localPost) {
+          setPost(localPost);
+          return;
+        }
         const response = await getIdPost(id);
         setPost(response);
       } catch (error) {
@@ -24,9 +32,13 @@ const DetailPost = () => {
           title: "Ocurrio un error",
           text: "Lo sentimos no podemos mostrar la card, intentelo de nuevo",
           icon: "error",
-          draggable: true,
-          showDenyButton: true,
-          confirmButtonText: "Volver al listado",
+          background: isDarkMode ? "#1f2937" : "#ffffff",
+          color: isDarkMode ? "#ffffff" : "#212529",
+          timer: 3000,
+          showConfirmButton: false,
+          willClose: () => {
+            back("/Home");
+          },
         }).then((result) => {
           if (result.isConfirmed) {
             back("/Home");

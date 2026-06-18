@@ -22,7 +22,7 @@ const NavBar = ({ children }) => {
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/" className="navbar-link">
+                <Link to="/Create" className="navbar-link">
                   Crear
                 </Link>
               </li>

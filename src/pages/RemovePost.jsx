@@ -30,9 +30,10 @@ const RemovePost = ({ postId, setPosts }) => {
 
     try {
       await deletePost(postId);
-
+      const localPosts = JSON.parse(localStorage.getItem("posts")) || [];
+      const updatedPosts = localPosts.filter((post) => post.id !== postId);
+      localStorage.setItem("posts", JSON.stringify(updatedPosts));
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
-
       Swal.fire({
         icon: "success",
         title: "Post eliminado",

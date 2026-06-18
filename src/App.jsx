@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext";
 import AcercaDe from "./pages/AcercaDe";
 import Servicio from "./pages/Servicio";
+import CreatePost from "./pages/CreatePost";
 function App() {
   const { theme } = useContext(ThemeContext);
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/EditPost" element={<EditPost />} />
           <Route path="/AcercaDe" element={<AcercaDe />} />
           <Route path="/Servicio" element={<Servicio />} />
+          <Route path="Create" element={<CreatePost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
