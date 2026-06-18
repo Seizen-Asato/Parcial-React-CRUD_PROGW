@@ -22,23 +22,18 @@ const NavBar = ({ children }) => {
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/Loading" className="navbar-link">
-                  Editar
+                <Link to="/" className="navbar-link">
+                  Crear
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/" className="navbar-link">
-                  Contacto
-                </Link>
-              </li>
-              <li className="navbar-item">
-                <Link to="/" className="navbar-link">
+                <Link to="/Servicio" className="navbar-link">
                   Servicios
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/" className="navbar-link">
-                  Acerca de
+                <Link to="/AcercaDe" className="navbar-link">
+                  Acerca De
                 </Link>
               </li>
             </ul>

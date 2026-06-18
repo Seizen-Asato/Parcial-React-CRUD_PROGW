@@ -1,0 +1,80 @@
+.light-mode .acerca-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #fffefe;
+  color: #232121;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.885);
+  text-align: center;
+}
+
+.light-mode .acerca-container h2 {
+  color: #4caf50;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.light-mode .acerca-container p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.dark-mode .acerca-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 2px 4px rgb(244, 241, 241);
+  text-align: center;
+}
+
+.dark-mode .acerca-container h2 {
+  color: #34d399;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.dark-mode .acerca-container p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .light-mode .acerca-container,
+  .dark-mode .acerca-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .light-mode .acerca-container h2,
+  .dark-mode .acerca-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .light-mode .acerca-container p,
+  .dark-mode .acerca-container p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .light-mode .acerca-container,
+  .dark-mode .acerca-container {
+    padding: 0.8rem;
+  }
+
+  .light-mode .acerca-container h2,
+  .dark-mode .acerca-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .light-mode .acerca-container p,
+  .dark-mode .acerca-container p {
+    font-size: 0.9rem;
+  }
+}
