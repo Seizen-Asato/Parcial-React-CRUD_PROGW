@@ -1,0 +1,5 @@
+@media (max-width: 576px) {
+  .swal2-popup {
+    width: 90% !important;
+  }
+}
