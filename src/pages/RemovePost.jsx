@@ -11,7 +11,6 @@ const RemovePost = ({ postId, setPosts }) => {
 
   const handleDelete = async () => {
     setBlockScroll(true);
-
     const isDarkMode = document.body.classList.contains("dark-mode");
 
     const result = await Swal.fire({
@@ -29,11 +28,10 @@ const RemovePost = ({ postId, setPosts }) => {
     if (!result.isConfirmed) return;
 
     try {
-      await deletePost(postId);
-      const localPosts = JSON.parse(localStorage.getItem("posts")) || [];
-      const updatedPosts = localPosts.filter((post) => post.id !== postId);
-      localStorage.setItem("posts", JSON.stringify(updatedPosts));
+      await deletePost(postId); // llamada a la API (aunque no cambie nada)
+      // 👉 Solo actualizamos el estado en memoria
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+
       Swal.fire({
         icon: "success",
         title: "Post eliminado",
@@ -49,7 +47,6 @@ const RemovePost = ({ postId, setPosts }) => {
         background: isDarkMode ? "#1f2937" : "#ffffff",
         color: isDarkMode ? "#ffffff" : "#212529",
       });
-
       console.error("Error al eliminar la Card", error);
     } finally {
       setBlockScroll(false);

@@ -1,8 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { createPost } from "../services/postService";
 import { useNavigate } from "react-router-dom";
 import "../components/layout/create.css";
-function CreatePost({}) {
+import { PostsContext } from "../context/PostContext"; // 👈 Importá el contexto
+
+function CreatePost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
@@ -10,20 +12,20 @@ function CreatePost({}) {
   const navigate = useNavigate();
   const titleRef = useRef(null);
 
+  const { setPosts } = useContext(PostsContext); // 👈 Usamos el contexto
+
   useEffect(() => {
     titleRef.current?.focus();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setError("");
 
     if (!title.trim()) {
       setError("El título es obligatorio");
       return;
     }
-
     if (!body.trim()) {
       setError("El contenido es obligatorio");
       return;
@@ -43,14 +45,10 @@ function CreatePost({}) {
 
       const createdPostData = {
         ...newPost,
-        id: response.id,
+        id: response.id || newPost.id,
       };
 
-      const localPosts = JSON.parse(localStorage.getItem("posts")) || [];
-
-      localPosts.unshift(createdPostData);
-
-      localStorage.setItem("posts", JSON.stringify(localPosts));
+      setPosts((prev) => [createdPostData, ...prev]);
 
       navigate("/");
     } catch (err) {

@@ -10,22 +10,25 @@ import { ThemeContext } from "./context/ThemeContext";
 import AcercaDe from "./pages/AcercaDe";
 import Servicio from "./pages/Servicio";
 import CreatePost from "./pages/CreatePost";
+import { PostsProvider } from "./context/PostContext";
+
 function App() {
   const { theme } = useContext(ThemeContext);
   return (
-    <>
-      <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
+    <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
+      <PostsProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detailPost/:id" element={<DetailPost />} />
           <Route path="/EditPost" element={<EditPost />} />
           <Route path="/AcercaDe" element={<AcercaDe />} />
           <Route path="/Servicio" element={<Servicio />} />
-          <Route path="Create" element={<CreatePost />} />
+          <Route path="/Create" element={<CreatePost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
-    </>
+      </PostsProvider>
+    </div>
   );
 }
+
 export default App;

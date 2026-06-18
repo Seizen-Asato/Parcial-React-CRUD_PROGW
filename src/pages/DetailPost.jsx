@@ -2,9 +2,10 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { getIdPost } from "../services/postService";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNotScroll } from "../hooks/useNotScroll";
+import { PostsContext } from "../context/PostContext";
 import Swal from "sweetalert2";
 import "../components/layout/detail.css";
 
@@ -14,16 +15,18 @@ const DetailPost = () => {
   const back = useNavigate();
   useNotScroll(!!post);
   const isDarkMode = document.body.classList.contains("dark-mode");
+  const { posts } = useContext(PostsContext);
 
   useEffect(() => {
     async function loadDetails() {
       try {
-        const localPosts = JSON.parse(localStorage.getItem("posts")) || [];
-        const localPost = localPosts.find((p) => p.id === Number(id));
+        const localPost = posts.find((p) => String(p.id) === String(id));
         if (localPost) {
           setPost(localPost);
           return;
         }
+
+        // 👉 Si no está en contexto, lo pedimos a la API
         const response = await getIdPost(id);
         setPost(response);
       } catch (error) {
