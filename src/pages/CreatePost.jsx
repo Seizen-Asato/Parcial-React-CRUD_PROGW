@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { createPost } from "../services/postService";
 import { useNavigate } from "react-router-dom";
 import "../components/layout/create.css";
-import { PostsContext } from "../context/PostContext"; // 👈 Importá el contexto
+import { PostsContext } from "../context/PostContext";
 
 function CreatePost() {
   const [title, setTitle] = useState("");
@@ -12,7 +12,7 @@ function CreatePost() {
   const navigate = useNavigate();
   const titleRef = useRef(null);
 
-  const { setPosts } = useContext(PostsContext); // 👈 Usamos el contexto
+  const { setPosts } = useContext(PostsContext);
 
   useEffect(() => {
     titleRef.current?.focus();
@@ -38,14 +38,13 @@ function CreatePost() {
         id: Date.now(),
         title,
         body,
-        userId: 1,
       };
 
       const response = await createPost(newPost);
 
       const createdPostData = {
         ...newPost,
-        id: response.id || newPost.id,
+       
       };
 
       setPosts((prev) => [createdPostData, ...prev]);
