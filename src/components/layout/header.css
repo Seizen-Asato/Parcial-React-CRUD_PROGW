@@ -1,0 +1,25 @@
+.header-conteiner {
+  padding: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+}
+
+.light-mode .header-conteiner {
+  background-color: #736cf3;
+  color: rgb(9, 9, 9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .header-conteiner {
+  background-color: #1e3a8a;
+  color: #34d399;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}

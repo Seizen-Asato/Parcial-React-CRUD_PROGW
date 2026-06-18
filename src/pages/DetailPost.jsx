@@ -25,8 +25,6 @@ const DetailPost = () => {
           setPost(localPost);
           return;
         }
-
-        // 👉 Si no está en contexto, lo pedimos a la API
         const response = await getIdPost(id);
         setPost(response);
       } catch (error) {

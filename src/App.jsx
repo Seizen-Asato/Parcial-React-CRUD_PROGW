@@ -11,21 +11,28 @@ import AcercaDe from "./pages/AcercaDe";
 import Servicio from "./pages/Servicio";
 import CreatePost from "./pages/CreatePost";
 import { PostsProvider } from "./context/PostContext";
+import Footer from "./components/Footer";
 
 function App() {
   const { theme } = useContext(ThemeContext);
+
   return (
-    <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
+    <div
+      className={`app-wrapper ${theme === "dark" ? "dark-mode" : "light-mode"}`}
+    >
       <PostsProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detailPost/:id" element={<DetailPost />} />
-          <Route path="/EditPost" element={<EditPost />} />
-          <Route path="/AcercaDe" element={<AcercaDe />} />
-          <Route path="/Servicio" element={<Servicio />} />
-          <Route path="/Create" element={<CreatePost />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="routes-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detailPost/:id" element={<DetailPost />} />
+            <Route path="/EditPost" element={<EditPost />} />
+            <Route path="/AcercaDe" element={<AcercaDe />} />
+            <Route path="/Servicio" element={<Servicio />} />
+            <Route path="/Create" element={<CreatePost />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
       </PostsProvider>
     </div>
   );

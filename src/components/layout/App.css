@@ -1,3 +1,23 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.routes-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.footer-wrapper {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.footer-wrapper.hidden {
+  display: none;
+}
+
 body.light-mode {
   background-color: #fff9f9;
   color: #111827;

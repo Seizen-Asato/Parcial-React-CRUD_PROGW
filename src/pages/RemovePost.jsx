@@ -28,8 +28,7 @@ const RemovePost = ({ postId, setPosts }) => {
     if (!result.isConfirmed) return;
 
     try {
-      await deletePost(postId); // llamada a la API (aunque no cambie nada)
-      // 👉 Solo actualizamos el estado en memoria
+      await deletePost(postId);
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
 
       Swal.fire({

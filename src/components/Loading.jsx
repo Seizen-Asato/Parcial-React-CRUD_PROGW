@@ -7,11 +7,11 @@ const Loading = () => {
   const { theme } = useContext(ThemeContext);
   useNotScroll(true);
   return (
-    <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
-      <div className="loading-container">
-        <div className="loading-spinner" />
-        <h5>LOADING ...</h5>
-      </div>
+    <div
+      className={`loading-container ${theme === "dark" ? "dark-mode" : "light-mode"}`}
+    >
+      <div className="loading-spinner" />
+      <h5>LOADING ...</h5>
     </div>
   );
 };
